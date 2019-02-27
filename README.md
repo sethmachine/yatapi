@@ -20,6 +20,7 @@ Yet Another Trigger API (YATAPI) is a Python based generator of SCMDraft TrigEdi
 ## Installation
 
 This assumes your system has met all [Technical Requirements](#technical-requirements).
+![Install YATAPI Demo](img/install-yatapi-gif.gif "Optional Title")
 
 1.  Clone or download this repository to your local machine, e.g. run `git clone https://github.com/sethmachine/yatapi.git` in your terminal or use the "Download Zip" option if you do not have a git client installed.
 
