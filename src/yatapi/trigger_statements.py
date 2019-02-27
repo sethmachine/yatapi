@@ -5,19 +5,19 @@
 import abc
 import inspect
 import re
+import typing
 
-# module level imports go here
-from scaction import SCAction
-from scalliance import SCAlliance
-from scoperation import SCOperation
-from scorder import SCOrder
-from scplayer import SCPlayer
-from scquantifier import SCQuantifier
-from scresource import SCResource
-from scscript import SCScript
-from scstate import SCState
-from scunit import SCUnit
-from scvisibility import SCVisibility, ALWAYS_DISPLAY
+from yatapi.scaction import SCAction
+from yatapi.scalliance import SCAlliance
+from yatapi.scoperation import SCOperation
+from yatapi.scorder import SCOrder
+from yatapi.scplayer import SCPlayer
+from yatapi.scquantifier import SCQuantifier
+from yatapi.scresource import SCResource
+from yatapi.scscript import SCScript
+from yatapi.scstate import SCState
+from yatapi.scunit import SCUnit
+from yatapi.scvisibility import SCVisibility, ALWAYS_DISPLAY
 
 
 class Statement(abc.ABC):
@@ -33,13 +33,11 @@ class Statement(abc.ABC):
     def _quote_value(self, value):
         return '"{}"'.format(value)
 
-    def compile(self, pretty=False) -> str:
-        """Compiles the action/condition into format usable by SCMDraft TrigEdit.
+    def _get_values(self, pretty=False) -> typing.List:
+        """Extracts the value of each statement argument in order as determined by the `__init__` method.
 
-        :param pretty: whether to include name of each argument (cannot be used in TrigEdit); use for debugging
-        :type pretty: bool
-        :return: a string representing the TrigEdit format for the trigger action or condition
-        :rtype: str
+        :return: a list of values associated with the syntax of the corresponding TrigEdit statement
+        :rtype: list
         """
         values = []
         for arg in inspect.getfullargspec(self.__init__).args:
@@ -52,6 +50,17 @@ class Statement(abc.ABC):
                     values.append('{}={}'.format(arg, value if type(value) == str else str(value)))
                 else:
                     values.append(value if type(value) == str else str(value))
+        return values
+
+    def compile(self, pretty=False) -> str:
+        """Compiles the action/condition into format usable by SCMDraft TrigEdit.
+
+        :param pretty: whether to include name of each argument (cannot be used in TrigEdit); use for debugging
+        :type pretty: bool
+        :return: a string representing the TrigEdit format for the trigger action or condition
+        :rtype: str
+        """
+        values = self._get_values(pretty=pretty)
         return '{}({});'.format(self.__class__._trigedit_name, ', '.join(values))
 
     def __repr__(self):
@@ -224,10 +233,20 @@ class DisplayTextMessage(Action):
     _trigedit_name = "Display Text Message"
     _quoted_fields = frozenset(["text"])
 
-    def __init__(self, visibility: SCVisibility=ALWAYS_DISPLAY, text: str=''):
+    def __init__(self, text: str, visibility: SCVisibility=ALWAYS_DISPLAY):
         super().__init__()
-        self.visibility = visibility
         self.text = text
+        self.visibility = visibility
+
+    def _get_values(self, pretty=False):
+        """Override due to TrigEdit order of (visibility, text) unintuitive, since the visibility parameter is unused.
+
+        The __init__ reverse the TrigEdit order.  This corrects the order.
+
+        :param pretty:
+        :return:
+        """
+        return [str(self.visibility), self.text]
 
 
 class GiveUnitsToPlayer(Action):

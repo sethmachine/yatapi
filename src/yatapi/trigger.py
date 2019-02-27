@@ -2,19 +2,13 @@
 
 """
 
-import csv
 import json
 import re
-import io
 import typing
-# from typing import List, Dict, Optional
 
 import yatapi.logger
 import yatapi.scplayer
 import yatapi.trigger_statements
-# from scplayer import SCPlayer
-# import trigger_statements
-# from trigger_statements import Action, Condition
 
 WIN_NEWLINE = '\r\n'
 NIX_NEWLINE = '\n'
@@ -32,7 +26,7 @@ CONDITIONS_RE = re.compile(r'Conditions:(?P<conditions>.+?)Actions:', re.IGNOREC
 ACTIONS_RE = re.compile(r'Actions:(?P<actions>.+)', re.IGNORECASE | re.DOTALL)
 STATEMENT_RE = re.compile(r'(?P<name>[^\(]+)\((?P<args>.*?)\)$', re.DOTALL)
 
-# prefix for indicating if comment is JSON data
+# prefix/regex for indicating if comment is JSON data
 JSON_COMMENT_PREFIX = 'JSON='
 JSON_COMMENT_REGEX = re.compile(r'^"JSON=(?P<json>.+?)"\);$')
 
