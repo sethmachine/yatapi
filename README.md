@@ -1,4 +1,7 @@
 # yatapi
+
+![Yatapi Usage Demo](img/yatapi-usage.gif "Yatapi Usage")
+
 Yet Another Trigger API (YATAPI) is a Python based generator of SCMDraft TrigEdit triggers featuring **type annotations**, **autocompletion** (with a Python IDE) **one-to-one correspondence with TrigEdit triggers**, and **object oriented programming design**.  YATAPI is designed to work with [PyCharm](https://www.jetbrains.com/pycharm/download/#section=mac), a modern Python IDE, and requires only basic Python scripting knowledge and how Starcraft Triggers work.  YATAPI is minimalist and extensible, and can be used as the base for more advanced triggering.  Since YATAPI is a **whitebox**--it has a one-to-one correspondence with Starcraft Triggers, there is no need to learn a new specialized triggering language or framework.  
 
 ## Requirements
@@ -22,7 +25,7 @@ Yet Another Trigger API (YATAPI) is a Python based generator of SCMDraft TrigEdi
 This assumes your system has met all [Technical Requirements](#technical-requirements).
 
 
-![Install YATAPI Demo](img/install-yatapi-gif.gif "Optional Title")
+![Install YATAPI Demo](img/install-yatapi-gif.gif "Install Yatapi Demo")
 
 1.  Clone or download this repository to your local machine, e.g. run `git clone https://github.com/sethmachine/yatapi.git` in your terminal or use the "Download Zip" option if you do not have a git client installed.
 
