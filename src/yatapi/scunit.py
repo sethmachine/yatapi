@@ -11,6 +11,12 @@ class SCUnit:
         return self.value
 
 
+# meta units
+MEN = SCUnit('"Men"')
+ANY_UNIT = SCUnit('"Any unit"')
+BUILDINGS = SCUnit('"Buildings"')
+FACTORIES = SCUnit('"Factories"')
+# real units
 ALAN_SCHEZAR_GOLIATH = SCUnit('"Alan Schezar (Goliath)"')
 ALAN_TURRET = SCUnit('"Alan Turret"')
 ALDARIS_TEMPLAR = SCUnit('"Aldaris (Templar)"')
