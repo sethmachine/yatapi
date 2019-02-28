@@ -7,18 +7,19 @@ Yet Another Trigger API (YATAPI) is a Python based generator of SCMDraft TrigEdi
 ## Comparison
 There are numerous other tools, frameworks, and projects aiming to make triggering automatable and easier.  YATAPI was created after reviewing these and determining they did not meet the need of the author.  Poor documentation and/or lack of examples were also criteria.  YATAPI is not meant to replace frameworks but rather serve as a base for others to build more advanced trigger systems.  See this [staredit.net discussion](http://www.staredit.net/topic/17706/#2) for what prompted me to create YATAPI.  
 
-| Feature                               | YATAPI             | LangUMS            |
-|---------------------------------------|--------------------|--------------------|
-| Python                                | :white_check_mark: | :x:                |
-| Smart Autocompletion                  | :white_check_mark: | :question:         |
-| Type Annotations                      | :white_check_mark: | :question:         |
-| PyCharm IDE                           | :white_check_mark: | :x:                |
-| One-to-one correspondence to triggers | :white_check_mark: | :x:                |
-| Install with pip                      | :white_check_mark: | :x:                |
-| Active Project                        | :white_check_mark: | :question:         |
-| Examples                              | :white_check_mark: | :white_check_mark: |
-| Easy to Extend                        | :white_check_mark: | :x:                |
+Key issues not addressed by existing tools: lack of documentation, lack of good examples, not in Python, project no longer active, difficult to extend or build upon, and not having a simple to understand one-to-one correspondence to vanilla triggers.  Note if you disagree with a classification in the table, send me a message and I will happily correct it.  
 
+| Feature                               | YATAPI             | LangUMS            | LIT                | ProTRG             | TriGen             | OreoTriggers       | MacroTriggers      |
+|---------------------------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
+| Python                                | :white_check_mark: | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
+| Smart Autocompletion                  | :white_check_mark: | :question:         | :question:         | :question:         | :question:         | :x:                | :x:                |
+| Type Annotations                      | :white_check_mark: | :question:         | :question:         | :x:                | :x:                | :x:                | :white_check_mark: |
+| PyCharm IDE                           | :white_check_mark: | :x:                | :x:                | :question:         | :question:         | :x:                | :x:                |
+| One-to-one correspondence to triggers | :white_check_mark: | :x:                | :white_check_mark: | :question:         | :x:                | :x:                | :x:                |
+| Install with pip                      | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
+| Active Project                        | :white_check_mark: | :question:         | :x:                | :x:                | :x:                | :x:                | :x:                |
+| Examples                              | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
+| Easy to Extend                        | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
 
 
 
