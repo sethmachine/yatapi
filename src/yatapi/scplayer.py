@@ -2,10 +2,23 @@
 
 """
 
+import re
+
+DIGITS = re.compile(r'[0-9+]')
+
 
 class SCPlayer:
     def __init__(self, value: str):
         self.value = value
+
+    def to_int(self) -> int:
+        return int(DIGITS.search(self.value).group())
+
+    def __hash__(self):
+        return hash(self.value)
+
+    def __eq__(self, other):
+        return self.value == other.value
 
     def __repr__(self):
         return self.value
