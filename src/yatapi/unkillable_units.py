@@ -7,7 +7,7 @@ UNKILLABLE_UNITS = [
  SCUnit('\"Cave-in\"'),
  SCUnit('\"Dark Swarm\"'),
  SCUnit('\"Data Disc\"'),
- SCUnit('\"Disruption Web\"'),
+ SCUnit('\"Disruption Field\"'),
  SCUnit('\"Duke Turret type 1\"'),
  SCUnit('\"Duke Turret type 2\"'),
  SCUnit('\"Flag\"'),
